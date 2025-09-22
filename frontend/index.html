@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Evaluation System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Auto Evaluation System</h1>
+            <p>Submit your programming assignments for automatic evaluation</p>
+        </header>
+
+        <main>
+            <!-- Student Login Section -->
+            <section class="login-section" id="loginSection">
+                <div class="card">
+                    <h2>Student Login</h2>
+                    <form id="loginForm">
+                        <input type="text" id="studentId" placeholder="Enter Student ID" required>
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Assignment Submission Section -->
+            <section class="submission-section hidden" id="submissionSection">
+                <div class="card">
+                    <h2>Submit Assignment</h2>
+                    <form id="assignmentForm">
+                        <input type="text" id="assignmentTitle" placeholder="Assignment Title" required>
+                        
+                        <label for="assignmentType">Assignment Type:</label>
+                        <select id="assignmentType" required>
+                            <option value="">Select Assignment Type</option>
+                            <option value="hello-world">Hello World Program</option>
+                            <option value="add-numbers">Add Two Numbers</option>
+                            <option value="fibonacci">Fibonacci Sequence</option>
+                            <option value="prime-check">Prime Number Check</option>
+                        </select>
+                        
+                        <label for="deadline">Deadline:</label>
+                        <input type="datetime-local" id="deadline" required>
+                        
+                        <label for="codeContent">Code:</label>
+                        <textarea id="codeContent" placeholder="Paste your Java code here..." required></textarea>
+                        
+                        <button type="submit" id="submitBtn">Submit Assignment</button>
+                    </form>
+                </div>
+
+                <!-- Code Examples -->
+                <div class="card">
+                    <h3>📝 Code Examples</h3>
+                    <div class="examples">
+                        <div class="example" data-type="hello-world">
+                            <h4>Hello World</h4>
+                            <pre><code class="language-java">public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</code></pre>
+                        </div>
+                        <div class="example" data-type="add-numbers">
+                            <h4>Add Two Numbers</h4>
+                            <pre><code class="language-java">import java.util.Scanner;
+
+public class AddNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        System.out.println(a + b);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="resultsSection">
+                <div class="card">
+                    <h2>📊 Evaluation Results</h2>
+                    <div id="resultContent"></div>
+                </div>
+                
+                <div class="card">
+                    <h3>📈 Assignment History</h3>
+                    <div id="historyContent"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay hidden" id="loadingOverlay">
+            <div class="spinner"></div>
+            <p>Evaluating your assignment...</p>
+        </div>
+
+        <!-- Status Messages -->
+        <div class="toast hidden" id="toast"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

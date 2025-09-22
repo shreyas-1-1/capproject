@@ -1,0 +1,21 @@
+# Java
+backend/target/
+*.class
+
+# Node
+frontend/node_modules/
+
+# Uploaded files
+uploads/
+
+# Docker
+*.log
+
+# IDE
+*.idea/
+*.iml
+*.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
